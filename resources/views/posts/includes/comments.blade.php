@@ -3,7 +3,7 @@
     <div class="flex flex-row justify-between px-6 py-3 border border-gray-300 mb-4" style="margin-left: @if($child) {{($key + 1) * (2 * $level)}}rem @endif;">
         <div class="flex flex-col">
             <h1 class="text-base font-semibold">{{$comment->name}}</h1>
-            <p class="text-sm">{{$comment->created_at}}</p>
+            <p class="text-sm">{{$comment->created_at->diffForHumans()}}</p>
             <p class="text-base">{{$comment->comment}}</p>
         </div>
         <form method="POST" action="{{route('reply.store')}}" class="flex flex-row justify-center items-center">
@@ -21,6 +21,6 @@
         </div>
         @endif
     </div>
-    @include('posts.partials.comments', ['comments' => $comment->replies, 'child' => true, 'level' => $level + 1])
+    @include('posts.includes.comments', ['comments' => $comment->replies, 'child' => true, 'level' => $level + 1])
     @endforeach
 </div>

@@ -9,9 +9,9 @@
 <!-- Posts -->
 <div class="w-full h-full flex-col justify-center items-center">
     <!-- Post Card -->
-    <div class="w-full card flex flex-col pl-8 pr-28 py-8 mb-6">
+    <div class="w-full card flex flex-col md:pl-8 md:pr-28 px-8 py-8 mb-6 overflow-hidden">
         <h1 class="text-2xl font-semibold text-black mb-2">{{$post->title}}</h1>
-        <p class="text-md">{{$post->content}}</p>
+        <p class="text-md break-all w-full">{{$post->content}}</p>
     </div>
 
     <!-- Comment form -->
