@@ -86,7 +86,7 @@ class CommentController extends Controller
     {
         $comment = Comment::find($id);
         
-        if(!$comment->post->isOwner() || !auth()->user()->isAdmin()) return back();
+        if(!$comment->post->isOwner() && !auth()->user()->isAdmin()) return back();
 
         $comment->status = !$comment->status;
         $comment->save();
