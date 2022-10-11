@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Language: css */
+@layer components {
+    .card {
+        @apply rounded-lg shadow-[0px_5px_20px_0px_#c9c9c9]
+    }
+}
