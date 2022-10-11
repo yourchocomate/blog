@@ -76,7 +76,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        if(!$post->isOwner() || !auth()->user()->isAdmin()) return back();
+        if(!$post->isOwner() && !auth()->user()->isAdmin()) return back();
 
         $post->status = !$post->status;
         $post->save();
@@ -94,7 +94,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        if(!$post->isOwner() || !auth()->user()->isAdmin()) return back();
+        if(!$post->isOwner() && !auth()->user()->isAdmin()) return back();
 
         return view('posts.edit', compact('post'));
     }
@@ -116,7 +116,7 @@ class PostController extends Controller
 
         $post = Post::find($request->post_id);
         
-        if(!$post->isOwner() || !auth()->user()->isAdmin()) return back();
+        if(!$post->isOwner() && !auth()->user()->isAdmin()) return back();
         
         $post->update($request->except('post_id', '_token'));
 
